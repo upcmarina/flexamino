@@ -1,1 +1,1 @@
-# structural_biology
+# SBI + PYTHON PROJECT
