@@ -5,7 +5,7 @@ Send composition of groups
 
 # GOAL
 
-Development of flexibility score for proteins baased on STRUCTURE. MSA is extra information to take into account and see if flexibility score has sense (in a position without variation in MSA, we can't have a large flexibility score).
+Development of flexibility score for proteins based on STRUCTURE. MSA is extra information to take into account and see if flexibility score has sense (in a position without variation in MSA, we can't have a large flexibility score).
 
 Structures from PDB or AlphaFold.
 
@@ -17,8 +17,8 @@ Important, our approach must be general, valid for any type of family and not sp
 
 # OUTPUT
 
-Flexibility score for each amino acid in sequence.
-
+Flexibility score for each amino acid in sequence. But side chain? or backbone? or both? --> preguntar Baldo
+'
 We must obtain:
 
 * Parseable text output
