@@ -54,4 +54,9 @@ Date for project --> near exam day
 
 # IDEAS FLEXIBILITY SCORE
 
-Calcul a partir de RMSD
+* Use RMSD
+
+* Use B-factors
+
+* Molecular Dynamics
+
