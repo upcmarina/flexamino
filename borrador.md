@@ -60,3 +60,8 @@ Date for project --> near exam day
 
 * Molecular Dynamics
 
+# DUBTES
+
+* DUBTE 1 -Respecte el càlcul de la flexibilitat quina és la part del aminoàcid que hauríem de tenir en compte (side-chain, backbone, les dues). 
+
+* RESPOSTA 1- Només del backbone, les cadenes laterals es mouen massa I si ho féssiu, hauria de ser  en una conformacio definida.
