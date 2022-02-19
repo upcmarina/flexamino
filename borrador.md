@@ -62,7 +62,8 @@ Date for project --> near exam day
 
 * Structural alphabets (Dong et al. 2016; Characterization and Prediction of Protein FlexibilityBased on Structural Alphabets):  
 Pros:
-    - Seems more or less simple to do  
+    - Seems more or less simple to do
+    - Does not use B-factor, which they say has experimental noise (depends on resolution of the structure, refinement conditions of the crystal, etc.)  
 Cons:
     - From the ROC curves of the article I wouldn't say the performance is great.
 
