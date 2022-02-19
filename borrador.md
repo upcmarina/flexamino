@@ -60,6 +60,12 @@ Date for project --> near exam day
 
 * Molecular Dynamics
 
+* Structural alphabets (Dong et al. 2016; Characterization and Prediction of Protein FlexibilityBased on Structural Alphabets):
+  Pros:
+    - Seems more or less simple to do
+  Cons:
+    - From the ROC curves of the article I wouldn't say the performance is great.
+
 # DUBTES
 
 * DUBTE 1 -Respecte el càlcul de la flexibilitat quina és la part del aminoàcid que hauríem de tenir en compte (side-chain, backbone, les dues). 
