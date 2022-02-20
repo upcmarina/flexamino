@@ -24,7 +24,19 @@ While much remains to be understood about protein flexibility, it is clear that 
 
 https://pubmed.ncbi.nlm.nih.gov/19308324/
 
-Interesting paper:
+* Structural Alphabets (SA):
+
+Proteins are often considered as rigid macromolecules while their structures exhibit specific flexibility, which is essential to complete their functions. Analyses of protein structures and dynamics are often performed with a simplified three-state description, i.e., the classical secondary structures. More precise and complete description of protein backbone conformation can be obtained using libraries of small protein fragments that are able to approximate every part of protein structures. These libraries, called structural alphabets (SAs), have been widely used in structure analysis field, from definition of ligand binding sites to superimposition of protein structures. SAs are also well suited to analyze the dynamics of protein structures. 
+
+SAs have been used at three different levels to comprehend protein flexibility: (i) for studying specific fundamental biological and biomedical problems, (ii) to analyze changes associated with protein complexation and allostery, and (iii) to predict protein flexibility.
+
+The backbone conformational variations can be described as changes in the pattern of SAs, which acts as fingerprints of the dynamics involved.
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4445325/
+
+* Interesting paper:
+
+Characterization and Prediction of Protein Flexibility Based on Structural Alphabets
 
 https://www.hindawi.com/journals/bmri/2016/4628025/
 
@@ -34,3 +46,4 @@ https://www.hindawi.com/journals/bmri/2016/4628025/
 
 * RMSD:
 
+* Based on Structural Alphabets: quite efficient to predict protein flexibility from amino-acid sequence.
