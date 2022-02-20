@@ -1,8 +1,6 @@
 **PROJECT INFORMATION**
 ===================================
 
-Send composition of groups
-
 # GOAL
 
 Development of flexibility score for proteins based on STRUCTURE. MSA is extra information to take into account and see if flexibility score has sense (in a position without variation in MSA, we can't have a large flexibility score).
