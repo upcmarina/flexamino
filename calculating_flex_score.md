@@ -90,3 +90,23 @@ plt.scatter(test1[1:], test2)
 ProtParam values on the y-axis and our values on the x-axis.  Note that the scales are different, they are arbitrary.  I haven’t figured out how to fit a linear model in Python yet (on the to do list), but the fit looks pretty good.  Plenty of scatter but the methods are in general agreement (which is good – we already have one paper published using the old method!).  Time to go back and redo a lot of work from the last two years…
 
 ![image](https://user-images.githubusercontent.com/67465839/154842241-26105243-8a67-47e9-8519-a1f32963d50d.png)
+
+Algunes modificacions aportades en comentaris:
+
+The way you smooth the b_factors searches the next 8 amino acids while it should look on the next 4 and the previous 4 amino acids. Also your if statement (if len(win) == 9) prevents the return of all values. I suggest the following code for the smoothing:
+
+```
+## average over 9 aa window
+b_factors_win = []
+it = 0
+for b in range(0, len(b_factors)):
+if b in range(0,4):
+win = b_factors[b – it:b + 5]
+b_win = sum(map(float, win)) / len(win)
+b_factors_win.append(b_win)
+it += 1
+else:
+win = b_factors[b – 4:b + 5]
+b_win = sum(map(float, win)) / len(win)
+b_factors_win.append(b_win)
+```
