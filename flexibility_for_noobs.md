@@ -34,6 +34,18 @@ The backbone conformational variations can be described as changes in the patter
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4445325/
 
+* About B-factors:
+
+Most of the prediction methods use the crystallographic data (namely B-factors) as the only indicator of protein’s inner flexibility and predicts them as rigid or flexible.
+
+The atomic mean-square displacement, or B-factor, measured during crystallographic experiments reflects an uncertainty about the position of atoms and represents the combined effects of the thermal vibrations and the static disorder. However, B-factor is not an absolute quantification of flexibility: it depends on the resolution of the structure, on the refinement procedure, on contacts in the crystal or on the structural environment. Flexibility is also indirectly highlighted by NMR experiments that show, in some circumstances, different local conformations that could correspond to different states of protein structures. The distinction between flexible, highly flexible and unstructured or disordered regions remains a difficult task.
+
+B/Temperature/Debye-Waller factor which can be interpreted as a measure of the temperature dependent vibration of the atoms in the crystal, or in more gentler terms the flexibility at a certain position
+
+https://www.blopig.com/blog/2015/08/using-b-factors-to-assess-flexibility/
+
+https://arxiv.org/ftp/arxiv/papers/1908/1908.05120.pdf
+
 * Interesting paper:
 
 Characterization and Prediction of Protein Flexibility Based on Structural Alphabets
