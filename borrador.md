@@ -54,7 +54,9 @@ Date for project --> near exam day
 
 * Use RMSD
 
-* Use B-factors
+* B-factor-derived flexibility score (Smith et al. 2003, Improved amino acid flexibility parameters): from experimental B-facotors of crystallography  
+distributions of b-factors for each AA are derived, and the flexiblity score assigned to each AA residue is the location parameter fo the extreme  
+valued dsitribution that the b-factors follow for each residue type. We could use this to compute fliexiblity in a sliding-window manner.
 
 * Molecular Dynamics
 
