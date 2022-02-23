@@ -7,3 +7,7 @@
 `flexibility_for_noobs.md` key concepts about flexibility
 
 `proposed_steps.md` steps proposed by professor
+
+`setup.py` set up
+
+`input.py` arguments
