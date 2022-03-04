@@ -68,7 +68,6 @@ Cons:
     - From the ROC curves of the article I wouldn't say the performance is great.
 
 # PROGRAM DRAFT
-=========================
 ## Prediction part:
 
 1. Read FASTA sequence(s): this can be done with the following example lines from Python class:
