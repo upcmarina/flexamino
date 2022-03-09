@@ -2,6 +2,24 @@
 ==================================
 *by* TORO, ERIC ; VALLEJO, MARINA ; VEGA, SARA
 
+`main.py` main execution script for the program
+
+`setup.py` set up
+
+Directories:
+
+* program_packages : 
+
+`input_reader.py`
+
+`pdb_functions.py`
+
+`profiles.py`
+
+`report.py`
+
+* other :
+
 `borrador.md` project information and others
 
 `input.py` arguments
@@ -12,5 +30,6 @@
 
 `proposed_steps.md` steps proposed by professor
 
-`setup.py` set up
+
+
 
