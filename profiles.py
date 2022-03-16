@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-""" 
-Package with functions to generate and apply b-factor profiles. 
+"""
+Package with functions to generate and apply b-factor profiles.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import requests as rq
 import os
 from pathlib import Path
+import numpy an np
 
 
 def normalize_bfactors(pdb_list):
@@ -46,9 +47,9 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
         template_structure = parser.get_structure(templates_list[element][-10:-4], templates_list[element])
         template_name = template_structure.get_id()
         structural_aln = PDB.StructureAlignment(fasta_align, target_structure, template_structure, len(templates_list), element)
-        
+
         bfactor_list = np.empty(0)
-        
+
         position = 0
         for residue in structural_aln.get_maps()[0].values():
             if residue is None:

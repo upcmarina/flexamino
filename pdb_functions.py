@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-""" 
-Package with functions to deal with pdb. 
+"""
+Package with functions to deal with pdb.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -17,7 +17,7 @@ import os
 
 # def searchPDB_crystals(pfam_code, min_res=2.2):
 #     """Search PDB crystallographic structures of a given pfam domain below a given resolution threshold."""
- 
+
 #     base_url = "https://search.rcsb.org/rcsbsearch/v1/query?json="
 #     pdb_query = '{"query": {"type": "group","logical_operator": "and","nodes": [{"type": "terminal","service": "text","parameters": {"operator": "exact_match","value": "X-RAY DIFFRACTION","attribute": "exptl.method"}},{"type": "terminal","service": "text","parameters":{"operator":"less_or_equal","value": '+ str(min_res) +',"attribute": "rcsb_entry_info.resolution_combined"}},{"type": "terminal","service": "text","parameters": {"operator": "exact_match","value": "'+ pfam_code +'","attribute": "rcsb_polymer_entity_annotation.annotation_id"}}]},"request_options":{"return_all_hits": true},"return_type": "entry"}'
 #     get_query = rq.get(base_url+pdb_query)
@@ -51,17 +51,17 @@ def pdb_download_structure(code): # que descarregui .gz (opcional)
     ### LINES TO SPLIT THE PDB IN CHAINS
     #parser=PDB.PDBParser()
     #io=PDB.PDBIO()
-    
+
     #structure = parser.get_structure(out, code.upper()+".pdb")
     #chainnum = 0
     #chainsData = []
-    
+
     #for chain in structure.get_chains():
     #    chainnum += 1
      #   if chainnum == input_chainnum or chain.get_id() == input_chainnum:
       #      io.set_structure(chain)
        #     io.save("static/data/"+out+".pdb")
-    
+
     #os.remove("static/data/tempPDB.pdb")
 
 def big_pdb(crystal_dict,limit=50):
@@ -101,7 +101,7 @@ def PDB_to_fasta(code_list, inputSeq):
 
 def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
     """
-    Download a specified PDB file using API and extract the specified chain. 
+    Download a specified PDB file using API and extract the specified chain.
     Returns the path to the one-chain pdb file.
     WARNING: IT ONLY DOWNLOADS X-RAY PDBs. If the pdb is not x-ray, returns None
     """
@@ -136,7 +136,7 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
         io.set_structure(chain_structure)
         io.save(pdb_chain_path)
         print("Saved pdb "+ pdb_chain_path)
-        return pdb_chain_path 
+        return pdb_chain_path
     else:
         print(code + " is not x-ray")
 
