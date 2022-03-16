@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-""" 
-Package with functions to deal with input fasta files. 
+"""
+Package with functions to deal with input fasta files.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -43,10 +43,10 @@ def run_clustalw(multifasta):
     Accepts a multifasta file as input.
     Returns a .aln file
     """
-    os.system('./bin/clustalw2 ' + multifasta)
+    os.system('./bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT')
     return "./tmp/seqs.aln"
 
-        
+
 def obtain_uniprot_id(inputSeq): # aquesta funcio anira al paquet input_reader.py
     """
     Obtain uniprot id of our query sequence

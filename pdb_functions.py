@@ -94,6 +94,7 @@ def PDB_to_fasta(code_list, inputSeq):
         out_file.write(sequence+"\n")
     inputSequence = SeqIO.parse(inputSeq, 'fasta')
     for seq in inputSequence:
+        out_file.write(str(">"+seq.id+"\n"))
         out_file.write(str(seq.seq+"\n"))
     out_file.close()
     return "./tmp/seqs.fasta"
@@ -132,6 +133,10 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
     ## check if the structure is X-ray and create pdb with only one chain:
     if structure.header["structure_method"] == 'x-ray diffraction':
         chain_structure = structure[0][chain]
+        for residue in chain_structure:
+            id = residue.id
+            if id[0] != ' ':
+                chain_structure.detach_child(id)
         io=PDBIO()
         io.set_structure(chain_structure)
         io.save(pdb_chain_path)

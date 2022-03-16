@@ -7,14 +7,14 @@ by: Toro, Vallejo, Vega
 2022
 """
 
-from Bio import PDB, SeqIO
+from Bio import PDB, SeqIO, AlignIO
 from Bio.SeqUtils import IUPACData
 import seaborn as sns
 import matplotlib.pyplot as plt
 import requests as rq
 import os
 from pathlib import Path
-import numpy an np
+import numpy as np
 
 
 def normalize_bfactors(pdb_list):
@@ -42,11 +42,11 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
     CA_bfactors = np.empty((0, len(target_seq)))
 
     target_structure = parser.get_structure(target_name[-10:-4], alphaFold_path)
-
+    alignment = AlignIO.read(fasta_align, "clustal")
     for element in range(0, len(templates_list)):
         template_structure = parser.get_structure(templates_list[element][-10:-4], templates_list[element])
         template_name = template_structure.get_id()
-        structural_aln = PDB.StructureAlignment(fasta_align, target_structure, template_structure, len(templates_list), element)
+        structural_aln = PDB.StructureAlignment(alignment, target_structure, template_structure, len(templates_list), element)
 
         bfactor_list = np.empty(0)
 

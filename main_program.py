@@ -21,10 +21,11 @@ from urllib.request import urlopen
 
 import os
 import shutil
+import pickle
 
 # Input fasta file:
-querySeq = "rcsb_pdb_4D2I.fasta"  # rcsb pdb header
-
+querySeq = "Q16613.fasta"  # rcsb pdb header
+output_filename = "output.out"
 # Do you want to keep the tmp directory?
 keep_tmp = True
 
@@ -42,10 +43,13 @@ if __name__ == "__main__":
     query_uniprot_ID = obtain_uniprot_id(querySeq)
 
     # run BLAST:
-    print("BLAST IS RUNNING...")
-    putative_homologs = blast_my_target(querySeq) # slow execution time
+    # print("BLAST IS RUNNING...")
+    # putative_homologs = blast_my_target(querySeq) # slow execution time
+    #
+    # print("BLAST FINISHED")
 
-    print("BLAST FINISHED")
+    putative_homologs = pickle.load(open("putative_homologs.dat", "rb"))
+
 
     ### Parse blast output AND download pdbs in tmp directory AND save filepaths in a list
     pdb_paths = [] #list with the paths to the downloaded pdb files
@@ -79,7 +83,9 @@ if __name__ == "__main__":
 
     ######## something is missing
 
-    profile_predict(querySeq, pdb_paths, "./tmp/alignment.aln", alphafold_model)
+    prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model)
+
+    prediction_write(prediction, output_filename)
 
     if keep_tmp == False:
         if os.path.exists("./tmp"):
