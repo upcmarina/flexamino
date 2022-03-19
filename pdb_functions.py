@@ -135,7 +135,7 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
         chain_structure = structure[0][chain]
         for residue in chain_structure:
             id = residue.id
-            if id[0] != ' ':
+            if residue.get_id()[0] != " " or  "CA" not in residue:
                 chain_structure.detach_child(id)
         io=PDBIO()
         io.set_structure(chain_structure)

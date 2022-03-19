@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-""" 
-Package with functions to generate a parseable file with the results and plots. 
+"""
+Package with functions to generate a parseable file with the results and plots.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -28,7 +28,7 @@ def prediction_write(prediction, output_filename, pdb=None, chainID=None):
     output_filename -- the name with which to write the output file
     pdb -- the name of the pdb to modify
     """
- 
+
     if pdb is None:
         with open(output_filename, "wt") as fd:
             fd.write(">"+output_filename+"\n")
@@ -58,6 +58,7 @@ def plot_profile(prediction, seqID):
     plot.set_title("Predicted B-factor profile for sequence " + seqID)
     plot.set_xlabel("Residue number")
     plot.set_ylabel("Normalized B-factor")
+    plt.show()
 
 def interactive_plot_profile(prediction, seqID):
     AA_pos = [num for num in range(0, len(prediction[0]))]

@@ -20,15 +20,18 @@ import numpy as np
 def normalize_bfactors(pdb_list):
     """Normalize c-alfa b-factors of a PDB structure by computing their Z-score."""
     normalized_structures = list()
+    parser=PDB.PDBParser()
     for pdb_name in pdb_list:
-        structure = parser.get_structure(pdb_name)
+        structure = parser.get_structure(pdb_name[-10:-4], pdb_name)
         bfactors = list()
         for residue in structure.get_residues():
-            bfactors.append(residue['CA'].get_bfactor())
+            if "CA" in residue:
+                bfactors.append(residue['CA'].get_bfactor())
         bf_mean = np.mean(bfactors)
         bf_sd = np.std(bfactors)
         for residue in structure.get_residues():
-            residue['CA'].set_bfactor((residue['CA'].get_bfactor() - bf_mean)/bf_sd)
+            if "CA" in residue:
+                residue['CA'].set_bfactor((residue['CA'].get_bfactor() - bf_mean)/bf_sd)
         normalized_structures.append(structure)
     return normalized_structures
 
@@ -43,8 +46,9 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
 
     target_structure = parser.get_structure(target_name[-10:-4], alphaFold_path)
     alignment = AlignIO.read(fasta_align, "clustal")
+    norm_templates = normalize_bfactors(templates_list) ## array of structure objects
     for element in range(0, len(templates_list)):
-        template_structure = parser.get_structure(templates_list[element][-10:-4], templates_list[element])
+        template_structure = norm_templates[element]
         template_name = template_structure.get_id()
         structural_aln = PDB.StructureAlignment(alignment, target_structure, template_structure, len(templates_list), element)
 
