@@ -25,11 +25,14 @@ import os
 import shutil
 import pickle
 import sys
+import time
 
 # Proteins to test: P06401, Q9P7Q4, Q9VVG4, P38401, P11433, Q9Y223, P65206
 
 if __name__ == "__main__":
     
+    start = time.time()
+
     # Get command-line arguments
     options = args.getArgs()
     querySeq = options.infile
@@ -117,3 +120,6 @@ if __name__ == "__main__":
 
         if verbose: print("### tmp directory deleted", file=sys.stderr, flush=True)
 
+    end = time.time()
+
+    print("### FlexAmino has finished. Total execution time: ", end-start, file=sys.stderr, flush=True)
