@@ -42,7 +42,7 @@ def PDB_to_fasta(code_list, inputSeq):
     return "./tmp/seqs.fasta"
 
 
-def pdb_download_chain_xray(code, chain, ): # que descarregui .gz (opcional)
+def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcional)
     """
     Download a specified PDB file using API and extract the specified chain.
     Returns the path to the one-chain pdb file.
@@ -55,7 +55,7 @@ def pdb_download_chain_xray(code, chain, ): # que descarregui .gz (opcional)
         r = rq.get(url, allow_redirects=True)
         r.raise_for_status()
     except rq.exceptions.HTTPError:
-        print("PDB " + code.upper() + "not found", file=sys.stderr, flush=True)
+        if verbose: print("PDB " + code.upper() + "not found", file=sys.stderr, flush=True)
         return None
     
     PDB_data = r.content.decode("utf-8")
@@ -63,14 +63,14 @@ def pdb_download_chain_xray(code, chain, ): # que descarregui .gz (opcional)
     pdb_path = "./tmp/"+code.upper()+".pdb"
 
     if os.path.exists(pdb_path):
-        print(pdb_path + "already exists.", file=sys.stderr, flush=True) 
+        if verbose: print(pdb_path + " already exists.", file=sys.stderr, flush=True) 
     else: 
         PDBfile = open(pdb_path, 'wt')
         for line in PDB_data:
             PDBfile.write(line)
         PDBfile.close()
 
-        print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
+        if verbose: print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
 
 
     ## parse pdb to extrat chain
@@ -90,10 +90,10 @@ def pdb_download_chain_xray(code, chain, ): # que descarregui .gz (opcional)
         io=PDBIO()
         io.set_structure(chain_structure)
         io.save(pdb_chain_path)
-        print("Saved pdb "+ pdb_chain_path, file=sys.stderr, flush=True)
+        if verbose: print("Saved pdb "+ pdb_chain_path, file=sys.stderr, flush=True)
         return pdb_chain_path
     else:
-        print(code + " is not x-ray", file=sys.stderr, flush=True)
+        if verbose: print(code + " is not x-ray", file=sys.stderr, flush=True)
 
 
 def obtain_pdb_list(blast_record):

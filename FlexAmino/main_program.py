@@ -80,7 +80,7 @@ if __name__ == "__main__":
             break
         pdb_id = pdb_hit[0]
         chain = pdb_hit[1]
-        path = pdb_download_chain_xray(pdb_id, chain)
+        path = pdb_download_chain_xray(pdb_id, chain, verbose)
         if path != None:  ## if the pdb is not x-ray, the function pdb_download_chain returns None
             pdb_paths.append(path)
 
