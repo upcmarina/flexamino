@@ -14,7 +14,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import requests as rq
 import os
-
+import sys
 
 def PDB_to_fasta(code_list, inputSeq):
     """Write a FASTA with template sequences from their PDBs and with target FASTA sequence."""
