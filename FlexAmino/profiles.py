@@ -66,7 +66,9 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
 
         CA_bfactors = np.append(CA_bfactors, [bfactor_list], axis = 0)
 
-
-    mean_bfactors = np.nanmean(CA_bfactors, axis=0)
+    try:
+        mean_bfactors = np.nanmean(CA_bfactors, axis=0)
+    except:
+        pass
 
     return (str(target_seq.seq), mean_bfactors.tolist())
