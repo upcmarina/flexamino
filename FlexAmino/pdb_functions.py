@@ -42,7 +42,7 @@ def PDB_to_fasta(code_list, inputSeq):
     return "./tmp/seqs.fasta"
 
 
-def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
+def pdb_download_chain_xray(code, chain, ): # que descarregui .gz (opcional)
     """
     Download a specified PDB file using API and extract the specified chain.
     Returns the path to the one-chain pdb file.
@@ -59,15 +59,19 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
         return None
     
     PDB_data = r.content.decode("utf-8")
-
+   
     pdb_path = "./tmp/"+code.upper()+".pdb"
 
-    PDBfile = open(pdb_path, 'wt')
-    for line in PDB_data:
-        PDBfile.write(line)
-    PDBfile.close()
+    if os.path.exists(pdb_path):
+        print(pdb_path + "already exists.", file=sys.stderr, flush=True) 
+    else: 
+        PDBfile = open(pdb_path, 'wt')
+        for line in PDB_data:
+            PDBfile.write(line)
+        PDBfile.close()
 
-    print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
+        print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
+
 
     ## parse pdb to extrat chain
     parser=PDBParser(QUIET=True)
