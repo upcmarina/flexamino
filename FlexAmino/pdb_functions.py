@@ -18,7 +18,7 @@ import sys
 
 def PDB_to_fasta(code_list, inputSeq):
     """Write a FASTA with template sequences from their PDBs and with target FASTA sequence."""
-    parser=PDB.PDBParser(PERMISSIVE=1)
+    parser=PDB.PDBParser(QUIET=True)
     out_file = open("./tmp/seqs.fasta", 'wt')
     for code in code_list:
         sequence = ""
@@ -70,7 +70,7 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
     print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
 
     ## parse pdb to extrat chain
-    parser=PDBParser(PERMISSIVE=1)
+    parser=PDBParser(QUIET=True)
     structure = parser.get_structure(code, pdb_path)
 
 

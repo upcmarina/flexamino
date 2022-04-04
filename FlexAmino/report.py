@@ -62,6 +62,5 @@ def plot_profile(prediction, seqID, output_filename):
     plot.set_title("Predicted B-factor profile for sequence " + seqID)
     plot.set_xlabel("Residue number")
     plot.set_ylabel("Normalized B-factor")
-    plt.show()
     if output_filename is not None:
         plt.savefig(output_filename + '.png')

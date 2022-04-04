@@ -15,6 +15,7 @@ import requests as rq
 import os
 from pathlib import Path
 import numpy as np
+import warnings
 
 
 def normalize_bfactors(pdb_list):
@@ -66,9 +67,8 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
 
         CA_bfactors = np.append(CA_bfactors, [bfactor_list], axis = 0)
 
-    try:
-        mean_bfactors = np.nanmean(CA_bfactors, axis=0)
-    except:
-        pass
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", category=RuntimeWarning)
+            mean_bfactors = np.nanmean(CA_bfactors, axis=0)
 
     return (str(target_seq.seq), mean_bfactors.tolist())
