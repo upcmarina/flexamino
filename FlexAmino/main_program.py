@@ -44,7 +44,8 @@ if __name__ == "__main__":
     rescue = options.rescue
     pdb_limit = options.pdb_limit
     
-    if verbose: print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
+    
+    print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
 
     # Create temporary directory to store .pdb files
     # if directory exists, delete it:
