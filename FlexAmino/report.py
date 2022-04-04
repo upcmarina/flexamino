@@ -35,7 +35,7 @@ def prediction_write(prediction, output_filename, seqID, pdb=None, chainID=None)
                 for position in range(0, len(prediction[0])):
                     fd.write(prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
         else:
-            sys.stdout.write(">" + SeqID + "\n")
+            sys.stdout.write(">" + seqID + "\n")
             for position in range(0, len(prediction[0])):
                 sys.stdout.write(prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
     #else: # CAL PODER FICAR ELS BFACTORS A UN PDB?
