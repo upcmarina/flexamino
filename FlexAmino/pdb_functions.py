@@ -54,8 +54,10 @@ def pdb_download_chain_xray(code, chain): # que descarregui .gz (opcional)
     try:
         r = rq.get(url, allow_redirects=True)
         r.raise_for_status()
-    except HTTPError:
+    except rq.exceptions.HTTPError:
         print("PDB " + code.upper() + "not found", file=sys.stderr, flush=True)
+        return None
+    
     PDB_data = r.content.decode("utf-8")
 
     pdb_path = "./tmp/"+code.upper()+".pdb"
