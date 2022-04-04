@@ -58,7 +58,8 @@ if __name__ == "__main__":
     # run BLAST:
         if verbose: print("### BLAST is running...", file=sys.stderr, flush=True) 
         putative_homologs = blast_my_target(querySeq) # slow execution time
-        pickle.dump(putative_homologs, "./tmp/putative_homologs.dat")
+        with open("./tmp/putative_homologs.dat", 'wb') as blast_file:
+            pickle.dump(putative_homologs, blast_file)
     #
         if verbose: print("### BLAST finished", file=sys.stderr, flush=True)
 
