@@ -13,12 +13,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import requests as rq
 import os
-import plotly.express as px
 import sys
 
 
-
-def prediction_write(prediction, output_filename, pdb=None, chainID=None):
+def prediction_write(prediction, output_filename, seqID, pdb=None, chainID=None):
     """
     Write predicted beta-factors to a file.
     Takes a predicted beta-factor profile and writes it to a file.
@@ -33,11 +31,11 @@ def prediction_write(prediction, output_filename, pdb=None, chainID=None):
     if pdb is None:
         if output_filename is not None:
             with open(output_filename + ".txt", "wt") as fd:
-                fd.write(">"+output_filename+"\n")
+                fd.write(">"+seqID+"\n")
                 for position in range(0, len(prediction[0])):
                     fd.write(prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
         else:
-            sys.stdout.write(">"+output_filename+"\n")
+            sys.stdout.write(">" + SeqID + "\n")
             for position in range(0, len(prediction[0])):
                 sys.stdout.write(prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
     #else: # CAL PODER FICAR ELS BFACTORS A UN PDB?

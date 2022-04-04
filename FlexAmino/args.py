@@ -28,6 +28,10 @@ def getArgs():
                             dest = 'rescue', action = 'store_true',
                             default = False,
                             help = 'Recover a computation from a BLAST result to avoid running BLAST again if the program fails')  
+    parser.add_argument('-p', '--pdb_cutoff',
+                            dest = 'pdb_limit', action = 'store_true',
+                            default = 10,
+                            help = 'Set a limit for the number of pdb files to download.')  
 
 
     return parser.parse_args()

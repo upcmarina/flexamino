@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
 # # Main program, execution
@@ -39,6 +39,7 @@ if __name__ == "__main__":
     keep_tmp = options.keep_tmp
     verbose = options.verbose
     rescue = options.rescue
+    pdb_limit = options.pdb_limit
     
     if verbose: print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
 
@@ -70,7 +71,7 @@ if __name__ == "__main__":
 
     ### Parse blast output AND download pdbs in tmp directory AND save filepaths in a list
     pdb_paths = [] #list with the paths to the downloaded pdb files
-    pdb_limit = 10 #user can change this n,
+    
     for pdb_hit in obtain_pdb_list(putative_homologs):
         if len(pdb_paths) >= pdb_limit:
             break
@@ -102,7 +103,7 @@ if __name__ == "__main__":
 
     prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model)
 
-    prediction_write(prediction, output_filename)
+    prediction_write(prediction, output_filename, query_uniprot_ID)
     
     if verbose: print("### Output generated", file=sys.stderr, flush=True)
 

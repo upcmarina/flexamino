@@ -16,8 +16,6 @@ from urllib.request import urlopen
 import os
 import shutil
 
-
-
 def run_alpha_fold(query_uniprot):
     """
     Generate an alpha fold model of the query sequence.

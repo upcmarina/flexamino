@@ -47,7 +47,7 @@ def run_clustalw(multifasta):
     return "./tmp/seqs.aln"
 
 
-def obtain_uniprot_id(inputSeq): # aquesta funcio anira al paquet input_reader.py
+def obtain_uniprot_id(inputSeq):
     """
     Obtain uniprot id of our query sequence
     """
