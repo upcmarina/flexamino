@@ -43,7 +43,7 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
 
     target_seq = SeqIO.read(target_name, "fasta")
 
-    CA_bfactors = np.empty((0, len(target_seq)))
+    CA_bfactors = np.empty((len(templates_list), len(target_seq)))
 
     target_structure = parser.get_structure(target_name[-10:-4], alphaFold_path)
     alignment = AlignIO.read(fasta_align, "clustal")
@@ -53,22 +53,25 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
         template_name = template_structure.get_id()
         structural_aln = PDB.StructureAlignment(alignment, target_structure, template_structure, len(templates_list), element)
 
-        bfactor_list = np.empty(0)
+        #bfactor_list = np.empty(0)
 
         position = 0
         for residue in structural_aln.get_maps()[0].values():
             if residue is None:
-                bfactor_list = np.append(bfactor_list, [np.nan], axis = 0)
+                CA_bfactors[element, position] = np.nan
+                #bfactor_list = np.append(bfactor_list, [np.nan], axis = 0)
                 #print(residue)
             else:
-                bfactor_list = np.append(bfactor_list, [residue['CA'].get_bfactor()], axis = 0)
+                CA_bfactors[element, position] = residue['CA'].get_bfactor()
+                #bfactor_list = np.append(bfactor_list, [residue['CA'].get_bfactor()], axis = 0)
                 #print(residue)
             position += 1
 
-        CA_bfactors = np.append(CA_bfactors, [bfactor_list], axis = 0)
+        #CA_bfactors = np.append(CA_bfactors, [bfactor_list], axis = 0)
 
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", category=RuntimeWarning)
-            mean_bfactors = np.nanmean(CA_bfactors, axis=0)
+            mean_bfactors = np.nanmean(CA_bfactors, axis = 0)
+            std_bfactors = np.nanstd(CA_bfactors, axis = 0)
 
-    return (str(target_seq.seq), mean_bfactors.tolist())
+    return (str(target_seq.seq), mean_bfactors.tolist(), std_bfactors.tolist())

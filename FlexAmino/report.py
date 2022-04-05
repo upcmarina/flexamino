@@ -33,11 +33,11 @@ def prediction_write(prediction, output_filename, seqID, pdb=None, chainID=None)
             with open(output_filename + ".txt", "wt") as fd:
                 fd.write(">"+seqID+"\n")
                 for position in range(0, len(prediction[0])):
-                    fd.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
+                    fd.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\t"+str(prediction[2][position])+"\n")
         else:
             sys.stdout.write(">" + seqID + "\n")
             for position in range(0, len(prediction[0])):
-                sys.stdout.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\n")
+                sys.stdout.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\t"+str(prediction[2][position])+"\n")
     #else: # CAL PODER FICAR ELS BFACTORS A UN PDB?
      #   structure = p.get_structure("structure", pdb)
       #  for chain in structure.get_chains():
