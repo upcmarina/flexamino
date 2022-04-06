@@ -59,7 +59,7 @@ def plot_profile(prediction, seqID, output_filename):
     AA_pos = [num for num in range(0, len(prediction[0]))]
 
     plt.figure()
-    plot = sns.lineplot(x = AA_pos, y = prediction[1],palette="pastel")
+    plot = sns.lineplot(x = AA_pos, y = prediction[1])
     plot.set_title("Predicted B-factor profile for sequence " + seqID)
     plot.set_xlabel("Residue number")
     plot.set_ylabel("Normalized B-factor")
