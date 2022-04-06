@@ -16,8 +16,8 @@ import args
 from input_reader import *
 from pdb_functions import *
 from advanced_models import *
-from profiles import *
-from report import *
+from profiles_bfactor import *
+from results_to_file import *
 
 from urllib.request import urlopen
 
