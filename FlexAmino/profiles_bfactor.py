@@ -78,7 +78,7 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, wi
             smooth_std = np.empty(len(std_bfactors))
             
             for position in range(0, len(mean_bfactors)):
-                if winsize % 2 == 0:
+                if winsize % 2 != 0:
                     lowerbound = position - (winsize - 1)/2
                 else:
                     lowerbound = position - winsize/2 + 1
