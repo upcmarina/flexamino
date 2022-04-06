@@ -13,9 +13,8 @@ by: Toro, Vallejo, Vega
 """
 import args
 
-from input_reader import *
+from work_with_input_sequence import *
 from pdb_functions import *
-from advanced_models import *
 from profiles_bfactor import *
 from results_to_file import *
 
