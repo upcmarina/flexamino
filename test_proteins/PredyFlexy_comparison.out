@@ -1,0 +1,14 @@
+
+	Pearson's product-moment correlation
+
+data:  data_flexamino[, 3] and data_predyflexy[, 10]
+t = 5.995, df = 312, p-value = 5.619e-09
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.2184802 0.4172340
+sample estimates:
+      cor 
+0.3213922 
+
+null device 
+          1 
