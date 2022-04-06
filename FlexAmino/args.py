@@ -9,7 +9,7 @@ def getArgs():
     parser.add_argument('-i', '--input',
                             dest = 'infile', action = 'store',
                             default = None,
-                            help = 'An input FASTA file containing protein sequences (or a directory?????)',
+                            help = 'An input FASTA file containing protein sequences',
                             type = str)
     parser.add_argument('-o', '--output',
                             dest = 'outfile', action = 'store',
