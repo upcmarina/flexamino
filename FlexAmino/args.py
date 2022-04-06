@@ -33,7 +33,7 @@ def getArgs():
                             default = 10,
                             help = 'Set a maximum number of pdb structures to use for the computation.')  
     parser.add_argument('-w', '--winsize',
-                            dest = '--winsize', action = 'store',
+                            dest = 'winsize', action = 'store',
                             default = 1,
                             help = 'Set a sliding window for smoothing the results.')  
 
