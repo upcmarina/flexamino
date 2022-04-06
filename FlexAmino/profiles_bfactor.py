@@ -79,13 +79,10 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, wi
             
             for position in range(0, len(mean_bfactors)):
                 if winsize % 2 != 0:
-                    lowerbound = position - (winsize - 1)/2
+                    lowerbound = int(position - (winsize - 1)/2)
                 else:
-                    lowerbound = position - winsize/2 + 1
-                upperbound = lowerbound + winsize
-
-                print("upperbound", upperbound)
-                print("lowerbound", lowerbound)
+                    lowerbound = int(position - winsize/2 + 1)
+                upperbound = int(lowerbound + winsize
                 
                 if lowerbound >= 0 and upperbound <= len(mean_bfactors):
                     smooth_mean[position] = np.nanmean(mean_bfactors[lowerbound:upperbound])
