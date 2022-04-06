@@ -83,6 +83,9 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, wi
                 else:
                     lowerbound = position - winsize/2 + 1
                 upperbound = lowerbound + winsize
+
+                print("upperbound", upperbound)
+                print("lowerbound", lowerbound)
                 
                 if lowerbound >= 0 and upperbound <= len(mean_bfactors):
                     smooth_mean[position] = np.nanmean(mean_bfactors[lowerbound:upperbound])
