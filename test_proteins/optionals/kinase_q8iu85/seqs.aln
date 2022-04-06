@@ -1,0 +1,106 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+./tmp/2JC6_A.pdb           ----------SWKKQAEDIKKIFEFKETLGTGAFSEVVLAEEKATGKLFA
+./tmp/6QP5_A.pdb           ------------KKQAEDIKKIFEFKETLGTG--SEVVLAEEKATGKLFA
+./tmp/1A06_A.pdb           ------------WKQAEDIRDIYDFRDVLGTGAFSEVILAEDKRTQKLVA
+./tmp/4FG9_A.pdb           ------------WKQAEDIRDIYDFRDVLGTGAFSEVILAEDKRTQKLVA
+./tmp/4FG8_A.pdb           ------------WKQAEDIRDIYDFRDVLGTGAFSEVILAEDKRTQKLVA
+./tmp/4FG7_A.pdb           -----------RWKQAEDIRDIYDFRDVLGTGAFSEVILAEDKRTQKLVA
+./tmp/2JAM_A.pdb           -----------------NIRKTFIFMEVLGSGAFSEVFLVKQRLTGKLFA
+./tmp/2W4O_A.pdb           ----------IDGSNRDALSDFFEVESELGRGATSIVYRCKQKGTQKPYA
+./tmp/6KYR_A.pdb           ------------FQIPATITERYKVGRTIGDGNFAVVKECVERSTAREYA
+./tmp/7KX8_A.pdb           --------------IPATITERYKVGRTIGDGNFAVVKECVERSTAREYA
+sp|Q8IU85|KCC1D_HUMAN      MARENGESSSSWKKQAEDIKKIFEFKETLGTGAFSEVVLAEEKATGKLFA
+                                             : . : .   :* *  : *    :: * :  *
+
+./tmp/2JC6_A.pdb           VKCIPKKAS-----SIENEIAVLRKIKHENIVALEDIYESPNHLYLVMQL
+./tmp/6QP5_A.pdb           VKCIPKKAL-----SIENEIAVLRKIKHENIVALEDIYESPNHLYLVMQL
+./tmp/1A06_A.pdb           IKCI---------AKE-NEIAVLHKIKHPNIVALDDIYESGGHLYLIMQL
+./tmp/4FG9_A.pdb           IKCI---------AKEENEIAVLHKIKHPNIVALDDIYESGGHLYLIMQL
+./tmp/4FG8_A.pdb           IKCI---------AKE-NEIAVLHKIKHPNIVALDDIYESGGHLYLIMQL
+./tmp/4FG7_A.pdb           IKCI---------ASMENEIAVLHKIKHPNIVALDDIYESGGHLYLIMQL
+./tmp/2JAM_A.pdb           LKCIKK-------SSLENEIAVLKKIKHENIVTLEDIYESTTHYYLVMQL
+./tmp/2W4O_A.pdb           LKVL-------------KKIGVLLRLSHPNIIKLKEIFETPTEISLVLEL
+./tmp/6KYR_A.pdb           LKIIKKSKCRGKEHMIQNEVSILRRVKHPNIVLLIEEMDVPTELYLVMEL
+./tmp/7KX8_A.pdb           LKIIKKSKCR--EHMIQNEVSILRRVKHPNIVLLIEEMDVPTELYLVMEL
+sp|Q8IU85|KCC1D_HUMAN      VKCIPKKALKGKESSIENEIAVLRKIKHENIVALEDIYESPNHLYLVMQL
+                           :* :             :::.:* ::.* **: * :  :   .  *:::*
+
+./tmp/2JC6_A.pdb           VSGGELFDRIVEKGFYTEKDASTLIRQVLDAVYYLHRMGIVHRDLKPENL
+./tmp/6QP5_A.pdb           VSGGELFDRIVEKGFYTEKDASTLIRQVLDAVYYLHRMGIVHRDLKPENL
+./tmp/1A06_A.pdb           VSGGELFDRIVEKGFYTERDASRLIFQVLDAVKYLHDLGIVHRDLKPENL
+./tmp/4FG9_A.pdb           VSGGELFDRIVEKGFYTERDASRLIFQVLDAVKYLHDLGIVHRDLKPENL
+./tmp/4FG8_A.pdb           VSGGELFDRIVEKGFYTERDASRLIFQVLDAVKYLHDLGIVHRDLKPENL
+./tmp/4FG7_A.pdb           VSGGELFDRIVEKGFYTERDASRLIFQVLDAVKYLHDLGIVHRDLKPENL
+./tmp/2JAM_A.pdb           VSGGELFDRILERGVYTEKDASLVIQQVLSAVKYLHENGIVHRDLKPENL
+./tmp/2W4O_A.pdb           VTGGELFDRIVEKGYYSERDAADAVKQILEAVAYLHENGIVHRDLKPENL
+./tmp/6KYR_A.pdb           VKGGDLFDAITSTNKYTERDASGMLYNLASAIKYLHSLNIVHRDIKPENL
+./tmp/7KX8_A.pdb           VKGGDLFD-------YTERDASGMLYNLASAIKYLHSLNIVHRDIKPENL
+sp|Q8IU85|KCC1D_HUMAN      VSGGELFDRIVEKGFYTEKDASTLIRQVLDAVYYLHRMGIVHRDLKPENL
+                           *.**:***       *:*:**:  : :: .*: ***  .*****:*****
+
+./tmp/2JC6_A.pdb           LYYSQDEES-KIMIS--------------------PGYVAPEVLAQKPYS
+./tmp/6QP5_A.pdb           LYYSQDEES-KIMISDF-----------------GPGYVAPEVLAQKPYS
+./tmp/1A06_A.pdb           LYYSLDEDS-KIMISDF------------------PGYVAPEVLAQKPYS
+./tmp/4FG9_A.pdb           LYYSLDEDS-KIMISDF------------------PGYVAPEVLAQKPYS
+./tmp/4FG8_A.pdb           LYYSLDEDS-KIMISDFT-----------------PGYVAPEVLAQKPYS
+./tmp/4FG7_A.pdb           LYYSLDEDS-KIMISDFGLSKMEDPG--------TPGYVAPEVLAQK--S
+./tmp/2JAM_A.pdb           LYLTPEENS-KIMITDFGLSKMEQNGIMSTACG-TPGYVAPEVLAQKPYS
+./tmp/2W4O_A.pdb           LYATPAPDA-PLKIADFG----------------TPGYCAPEILRGCAYG
+./tmp/6KYR_A.pdb           LVYEHQDGSKSLKLGDFGLATIVDGPLYTVCG--TPTYVAPEIIAETGYG
+./tmp/7KX8_A.pdb           LVYEK-----SLKLGDFGLATIVDGPLYTVCG--TPTYVAPEIIAETGYG
+sp|Q8IU85|KCC1D_HUMAN      LYYSQDEES-KIMISDFGLSKMEGKGDVMSTACGTPGYVAPEVLAQKPYS
+                           *          : :                     * * ***::     .
+
+./tmp/2JC6_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DSKLFEQILKAEYEFDSPYWDDI
+./tmp/6QP5_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DSKLFEQILKAEYEFDSPYWDDI
+./tmp/1A06_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DAKLFEQILKAEYEFDSPYWDDI
+./tmp/4FG9_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DAKLFEQILKAEYEFDSPYWDDI
+./tmp/4FG8_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DAKLFEQILKAEYEFDSPYWDDI
+./tmp/4FG7_A.pdb           KAVDCWSIGVIAYILLCGYPPFYDEN-DAKLFEQILKAEYEFDSPYWDDI
+./tmp/2JAM_A.pdb           KAVDCWSIGVITYILLCGYPPFYEET-ESKLFEKIKEGYYEFESPFWDDI
+./tmp/2W4O_A.pdb           PEVDMWSVGIITYILLCGFEPFYDERGDQFMFRRILNCEYYFISPWWDEV
+./tmp/6KYR_A.pdb           LKVDIWAAGVITYILLCGFPPFRGDQ--EVLFDQILMGQVDFPSPYWDNV
+./tmp/7KX8_A.pdb           LKVDIWAAGVITYILLCGFPPFRGSQ--EVLFDQILMGQVDFPSPYWDNV
+sp|Q8IU85|KCC1D_HUMAN      KAVDCWSIGVIAYILLCGYPPFYDEN-DSKLFEQILKAEYEFDSPYWDDI
+                             ** *: *:*:******: **  .     :* :*      * **:**::
+
+./tmp/2JC6_A.pdb           SDSAKDFIRNLMEKDPNKRYTCEQAARHPWIAGDTALNKNIHESVSAQIR
+./tmp/6QP5_A.pdb           SDSAKDFIRNLMEKDPNKRYTCEQAARHPWIAGDTALNKNIHESVSAQIR
+./tmp/1A06_A.pdb           SDSAKDFIRHLMEKDPEKRFTCEQALQHPWIAGDTALDKNIHQSVSEQIK
+./tmp/4FG9_A.pdb           SDSAKDFIRHLMEKDPEKRFTCEQALQHPWIAGDTALDKNIHQSVSEQIK
+./tmp/4FG8_A.pdb           SDSAKDFIRHLMEKDPEKRFTCEQALQHPWIAGDTALDKNIHQSVSEQIK
+./tmp/4FG7_A.pdb           SDSAKDFIRHLMEKDPEKRFTCEQALQHPWIA------------------
+./tmp/2JAM_A.pdb           SESAKDFICHLLEKDPNERYTCEKALSHPWIDGNTALHRDIYPSVSLQIQ
+./tmp/2W4O_A.pdb           SLNAKDLVRKLIVLDPKKRLTTFQALQHPWVTG-KAANFVHMDTAQKKLQ
+./tmp/6KYR_A.pdb           SDSAKELITMMLLVDVDQRFSAVQVLEHPWVNDDGLPENEHQLSVAGKIK
+./tmp/7KX8_A.pdb           SDSAKELITMMLLVDVDQRFSAVQVLEHPWVN--------HQLSVAGKIK
+sp|Q8IU85|KCC1D_HUMAN      SDSAKDFIRNLMEKDPNKRYTCEQAARHPWIAGDTALNKNIHESVSAQIR
+                           * .**:::  ::  * .:* :  :.  ***:                   
+
+./tmp/2JC6_A.pdb           KNFAKSKWRQAFNAT-----------------------------------
+./tmp/6QP5_A.pdb           KNFA----------------------------------------------
+./tmp/1A06_A.pdb           KNFAKSKWKQAFNATAVVRHM-----------------------------
+./tmp/4FG9_A.pdb           KNFAKSKWKQAFNATAVVR-------------------------------
+./tmp/4FG8_A.pdb           KNFA----------------------------------------------
+./tmp/4FG7_A.pdb           --------------------------------------------------
+./tmp/2JAM_A.pdb           KNFAKS--------------------------------------------
+./tmp/2W4O_A.pdb           EFNARRKLKAAVKAVVASS-------------------------------
+./tmp/6KYR_A.pdb           KHFTAAGVSVIATTALDKERQVFRRRR-----------------------
+./tmp/7KX8_A.pdb           KHF-----------------------------------------------
+sp|Q8IU85|KCC1D_HUMAN      KNFAKSKWRQAFNATAVVRHMRKLHLGSSLDSSNASVSSSLSLASQKDCL
+                                                                             
+
+./tmp/2JC6_A.pdb           -------------------------------------
+./tmp/6QP5_A.pdb           -------------------------------------
+./tmp/1A06_A.pdb           -------------------------------------
+./tmp/4FG9_A.pdb           -------------------------------------
+./tmp/4FG8_A.pdb           -------------------------------------
+./tmp/4FG7_A.pdb           -------------------------------------
+./tmp/2JAM_A.pdb           -------------------------------------
+./tmp/2W4O_A.pdb           -------------------------------------
+./tmp/6KYR_A.pdb           -------------------------------------
+./tmp/7KX8_A.pdb           -------------------------------------
+sp|Q8IU85|KCC1D_HUMAN      APSTLCSFISSSSGVSGVGAERRPRPTTVTAVHSGSK
+                                                                
