@@ -16,7 +16,7 @@ import os
 import sys
 
 
-def prediction_write(prediction, output_filename, seqID, pdb=None, chainID=None):
+def prediction_write(prediction, output_filename, seqID, winsize, pdb=None, chainID=None):
     """
     Write predicted beta-factors to a file.
     Takes a predicted beta-factor profile and writes it to a file.
@@ -29,15 +29,20 @@ def prediction_write(prediction, output_filename, seqID, pdb=None, chainID=None)
     """
 
     if pdb is None:
-        if output_filename is not None:
-            with open(output_filename + ".txt", "wt") as fd:
-                fd.write(">"+seqID+"\n")
+        with open(output_filename + ".txt", "wt") as fd:
+            fd.write(">"+seqID+"\n")
+            if winsize == 1:
                 for position in range(0, len(prediction[0])):
-                    fd.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\t"+str(prediction[2][position])+"\n")
-        else:
-            sys.stdout.write(">" + seqID + "\n")
-            for position in range(0, len(prediction[0])):
-                sys.stdout.write(str(position+1)+"\t"+prediction[0][position]+"\t"+str(prediction[1][position])+"\t"+str(prediction[2][position])+"\n")
+                    fd.write(str(position+1)+"\t"+prediction[0][position]+
+                    "\t"+str(prediction[1][position])+
+                    "\t"+str(prediction[2][position])+"\n")
+            else:
+                for position in range(0, len(prediction[0])):
+                    fd.write(str(position+1)+"\t"+prediction[0][position]+
+                    "\t"+str(prediction[1][position])+
+                    "\t"+str(prediction[2][position])+
+                    "\t"+str(prediction[3][position])+"\n")
+
     #else: # CAL PODER FICAR ELS BFACTORS A UN PDB?
      #   structure = p.get_structure("structure", pdb)
       #  for chain in structure.get_chains():
@@ -59,7 +64,7 @@ def plot_profile(prediction, seqID, output_filename):
     AA_pos = [num for num in range(0, len(prediction[0]))]
 
     plt.figure()
-    plot = sns.lineplot(x = AA_pos, y = prediction[1])
+    plot = sns.lineplot(x = AA_pos, y = prediction[3])
     plot.set_title("Predicted B-factor profile for sequence " + seqID)
     plot.set_xlabel("Residue number")
     plot.set_ylabel("Normalized B-factor")

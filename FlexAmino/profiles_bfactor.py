@@ -37,7 +37,7 @@ def normalize_bfactors(pdb_list):
     return normalized_structures
 
 
-def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
+def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, winsize):
     """Predict the b-factor profile of an target protein based on a structural alignment."""
     parser=PDB.PDBParser()
 
@@ -74,4 +74,20 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path):
             mean_bfactors = np.nanmean(CA_bfactors, axis = 0)
             std_bfactors = np.nanstd(CA_bfactors, axis = 0)
 
-    return (str(target_seq.seq), mean_bfactors.tolist(), std_bfactors.tolist())
+            smooth_mean = np.empty(len(mean_bfactors))
+            smooth_std = np.empty(len(std_bfactors))
+            
+            for position in range(0, len(mean_bfactors)):
+                if winsize % 2 == 0:
+                    lowerbound = position - (winsize - 1)/2
+                else:
+                    lowerbound = position - winsize/2 + 1
+                upperbound = lowerbound + winsize
+                
+                if lowerbound >= 0 and upperbound <= len(mean_bfactors):
+                    smooth_mean[position] = np.nanmean(mean_bfactors[lowerbound:upperbound])
+                else:
+                    smooth_mean[position] = np.nan
+            
+
+    return (str(target_seq.seq), mean_bfactors.tolist(), std_bfactors.tolist(), smooth_mean.tolist())

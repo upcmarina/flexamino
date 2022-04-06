@@ -26,8 +26,6 @@ import pickle
 import sys
 import time
 
-# Proteins to test: P06401, Q9P7Q4, Q9VVG4, P38401, P11433, Q9Y223, P65206
-
 if __name__ == "__main__":
     
     start = time.time()
@@ -36,12 +34,15 @@ if __name__ == "__main__":
     options = args.getArgs()
     querySeq = options.infile
     if querySeq == None:
-        raise SystemExit('Please provide an input file')
+        raise SystemExit('Please provide an input file.')
     output_filename = options.outfile
+    if output_filename == None:
+        raise SystemExit('Please provide an output prefix.')
     keep_tmp = options.keep_tmp
     verbose = options.verbose
     rescue = options.rescue
     pdb_limit = options.pdb_limit
+    winsize = options.winsize
     
     
     print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
@@ -100,13 +101,13 @@ if __name__ == "__main__":
 
     alphafold_model = run_alpha_fold(query_uniprot_ID)
 
-    if verbose: print("### Alpha Fold model generated", file=sys.stderr, flush=True)
+    if verbose: print("### Alpha Fold model downloaded", file=sys.stderr, flush=True)
 
     ######## something is missing
 
-    prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model)
+    prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model, winsize)
 
-    prediction_write(prediction, output_filename, query_uniprot_ID)
+    prediction_write(prediction, output_filename, query_uniprot_ID, winsize)
     
     if verbose: print("### Output generated", file=sys.stderr, flush=True)
 
