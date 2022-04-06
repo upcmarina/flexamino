@@ -46,7 +46,7 @@ def run_clustalw(multifasta):
     Returns a .aln file
     """
     file_path = os.path.dirname(os.path.abspath(__file__))
-    os.system(filepath + '/bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT -QUIET')
+    os.system(file_path + '/bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT -QUIET')
     return "./tmp/seqs.aln"
 
 

@@ -5,7 +5,6 @@
 
 # In[ ]:
 
-
 """
 Main execution program.
 by: Toro, Vallejo, Vega
@@ -30,7 +29,9 @@ if __name__ == "__main__":
     
     start = time.time()
 
-    # Get command-line arguments
+    print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
+
+    # Get command-line arguments:
     options = args.getArgs()
     querySeq = options.infile
     if querySeq == None:
@@ -43,10 +44,7 @@ if __name__ == "__main__":
     rescue = options.rescue
     pdb_limit = options.pdb_limit
     winsize = options.winsize
-    
-    
-    print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
-
+ 
     # Create temporary directory to store .pdb files
     # if directory exists, delete it:
     try:
@@ -54,9 +52,7 @@ if __name__ == "__main__":
     except FileExistsError:
         pass
 
-    ### INPUT READER ###
-
-    # obtain UNIPROT id:
+    # Obtain UNIPROT id from the Query Sequence:
     query_uniprot_ID = obtain_uniprot_id(querySeq)
 
     if rescue == False:
@@ -72,7 +68,6 @@ if __name__ == "__main__":
         if verbose: print("### Recovering BLAST results...", file=sys.stderr, flush=True)
         putative_homologs = pickle.load(open("./tmp/putative_homologs.dat", "rb"))
 
-
     ### Parse blast output AND download pdbs in tmp directory AND save filepaths in a list
     pdb_paths = [] #list with the paths to the downloaded pdb files
     
@@ -85,25 +80,20 @@ if __name__ == "__main__":
         if path != None:  ## if the pdb is not x-ray, the function pdb_download_chain returns None
             pdb_paths.append(path)
 
-    # obtain multifasta file:
+    # Obtain multifasta file:
     multifasta = PDB_to_fasta(pdb_paths, querySeq)
 
     if verbose: print("### Multifasta file obtained", file=sys.stderr, flush=True)
 
-    # Multiple Sequence Alignment (MSA)
+    # Multiple Sequence Alignment (MSA):
     msa = run_clustalw(multifasta)
 
     if verbose: print("### Multiple Sequence Alignment done", file=sys.stderr, flush=True)
 
-    ######## something is missing
-
-    ### GENERATE ALPHA FOLD MODEL OF QUERY SEQUENCE ###
-
+    # Generate Alpha Fold model of the query sequence
     alphafold_model = run_alpha_fold(query_uniprot_ID)
 
     if verbose: print("### Alpha Fold model downloaded", file=sys.stderr, flush=True)
-
-    ######## something is missing
 
     prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model, winsize)
 
