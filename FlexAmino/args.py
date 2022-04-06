@@ -14,25 +14,28 @@ def getArgs():
     parser.add_argument('-o', '--output',
                             dest = 'outfile', action = 'store',
                             default = None,
-                            help = 'Prefix to generate the different output files. If not provided, prints report in stantard output',
+                            help = 'Set a prefix to generate the different output files.',
                             type = str)
     parser.add_argument('-v', '--verbose',
                             dest = 'verbose', action = 'store_true',
                             default = False,
-                            help = 'Print the progression of the program to the terminal (Standard Error)')
+                            help = 'Print the progression of the program execution to the terminal (Standard Error).')
     parser.add_argument('-t', '--tmp',
                             dest = 'keep_tmp', action = 'store_true', 
                             default = False,
-                            help = 'Keep the tmp directory')
+                            help = 'Keep the tmp directory when the program finishes.')
     parser.add_argument('-r', '--rescue',
                             dest = 'rescue', action = 'store_true',
                             default = False,
-                            help = 'Recover a computation from a BLAST result to avoid running BLAST again if the program fails')  
+                            help = 'Recover a computation from a BLAST result to avoid running BLAST again if the program fails.')  
     parser.add_argument('-p', '--pdb_cutoff',
-                            dest = 'pdb_limit', action = 'store_true',
+                            dest = 'pdb_limit', action = 'store',
                             default = 10,
-                            help = 'Set a limit for the number of pdb files to download.')  
-
+                            help = 'Set a maximum number of pdb structures to use for the computation.')  
+    parser.add_argument('-w', '--winsize',
+                            dest = '--winsize', action = 'store',
+                            default = 1,
+                            help = 'Set a sliding window for smoothing the results.')  
 
     return parser.parse_args()
 
