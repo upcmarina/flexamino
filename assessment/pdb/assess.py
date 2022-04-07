@@ -5,20 +5,34 @@ from Bio.SeqUtils import IUPACData
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 
-## obtain beta factors from prediction:
+
+## beta factors from prediction ##
 prediction = pd.read_csv("O08989_pred_out.txt", skiprows=1, sep="\t", header=None)
 prediction = prediction[[0, 2]]
 prediction.columns = ['position', 'bfactor']
 prediction = prediction.assign(key="pred")
-## prediction[0]: residue position
-## prediction[2]: bfactor
-#
-## obtain beta factors from pdb
+
+
+## beta factors from pdb ##
 parser=PDB.PDBParser()
 structure = parser.get_structure("1x1r", "1x1r.pdb")
 structure = structure[0]["A"]
+
+### NORMALIZE BFACTORS
+bfactors = list()
+for residue in structure.get_residues():
+    if "CA" in residue:
+        bfactors.append(residue['CA'].get_bfactor())
+bf_mean = np.mean(bfactors)
+bf_sd = np.std(bfactors)
+for residue in structure.get_residues():
+    if "CA" in residue:
+        residue['CA'].set_bfactor((residue['CA'].get_bfactor() - bf_mean)/bf_sd)
+
+### get bfactors
 obs_data = []
 for residue in structure.get_residues():
     if "CA" in residue:
@@ -29,6 +43,7 @@ for residue in structure.get_residues():
 observed = pd.DataFrame(obs_data, columns=['position', 'bfactor'])
 observed = observed.assign(key="obs")
 
+### plot data ###
 data = pd.concat([prediction, observed], axis=0, ignore_index=True)
 
 data2 = observed.merge(prediction, on="position")
