@@ -10,8 +10,6 @@ from Bio.PDB import PDBParser
 from Bio.PDB.PDBIO import PDBIO
 from Bio import PDB, SeqIO
 from Bio.SeqUtils import IUPACData
-import seaborn as sns
-import matplotlib.pyplot as plt
 import requests as rq
 import os
 import sys
@@ -48,23 +46,22 @@ def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcion
     Returns the path to the one-chain pdb file.
     WARNING: IT ONLY DOWNLOADS X-RAY PDBs. If the pdb is not x-ray, returns None
     """
-
-    url = "https://files.rcsb.org/download/" + code.upper() + ".pdb"
-
-    try:
-        r = rq.get(url, allow_redirects=True)
-        r.raise_for_status()
-    except rq.exceptions.HTTPError:
-        if verbose: print("PDB " + code.upper() + " not found", file=sys.stderr, flush=True)
-        return None
-    
-    PDB_data = r.content.decode("utf-8")
-   
     pdb_path = "./tmp/"+code.upper()+".pdb"
 
     if os.path.exists(pdb_path):
-        if verbose: print(pdb_path + " already exists.", file=sys.stderr, flush=True) 
-    else: 
+        if verbose: print(pdb_path + " already exists.", file=sys.stderr, flush=True)
+    else:
+        url = "https://files.rcsb.org/download/" + code.upper() + ".pdb"
+
+        try:
+            r = rq.get(url, allow_redirects=True)
+            r.raise_for_status()
+        except rq.exceptions.HTTPError:
+            if verbose: print("PDB " + code.upper() + " not found", file=sys.stderr, flush=True)
+            return None
+
+        PDB_data = r.content.decode("utf-8")
+
         PDBfile = open(pdb_path, 'wt')
         for line in PDB_data:
             PDBfile.write(line)
@@ -79,7 +76,6 @@ def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcion
 
 
     pdb_chain_path = "./tmp/"+code.upper()+ "_" + chain + ".pdb"
-
     ## check if the structure is X-ray and create pdb with only one chain:
     if structure.header["structure_method"] == 'x-ray diffraction':
         chain_structure = structure[0][chain]
