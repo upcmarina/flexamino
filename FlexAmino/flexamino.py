@@ -42,7 +42,7 @@ if __name__ == "__main__":
     keep_tmp = options.keep_tmp
     verbose = options.verbose
     rescue = options.rescue
-    pdb_limit = options.pdb_limit
+    pdb_limit = int(options.pdb_limit)
     winsize = int(options.winsize)
 
     # Create temporary directory to store .pdb files
