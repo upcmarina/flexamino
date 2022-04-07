@@ -26,7 +26,7 @@ import sys
 import time
 
 if __name__ == "__main__":
-    
+
     start = time.time()
 
     print("### FlexAmino HAS STARTED", file=sys.stderr, flush=True)
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     rescue = options.rescue
     pdb_limit = options.pdb_limit
     winsize = int(options.winsize)
- 
+
     # Create temporary directory to store .pdb files
     # if directory exists, delete it:
     try:
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     if rescue == False:
     # run BLAST:
-        if verbose: print("### BLAST is running...", file=sys.stderr, flush=True) 
+        if verbose: print("### BLAST is running...", file=sys.stderr, flush=True)
         putative_homologs = blast_my_target(querySeq) # slow execution time
         with open("./tmp/putative_homologs.dat", 'wb') as blast_file:
             pickle.dump(putative_homologs, blast_file)
@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     ### Parse blast output AND download pdbs in tmp directory AND save filepaths in a list
     pdb_paths = [] #list with the paths to the downloaded pdb files
-    
+
     for pdb_hit in obtain_pdb_list(putative_homologs):
         if len(pdb_paths) >= pdb_limit:
             break
@@ -98,10 +98,10 @@ if __name__ == "__main__":
     prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model, winsize)
 
     prediction_write(prediction, output_filename, query_uniprot_ID, winsize)
-    
+
     if verbose: print("### Output generated", file=sys.stderr, flush=True)
 
-    plot_profile(prediction, query_uniprot_ID, output_filename)
+    plot_profile(prediction, query_uniprot_ID, output_filename, winsize)
 
     if keep_tmp == False:
         if os.path.exists("./tmp"):
