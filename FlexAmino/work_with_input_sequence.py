@@ -46,7 +46,7 @@ def run_clustalw(multifasta):
     Returns a .aln file
     """
     file_path = os.path.dirname(os.path.abspath(__file__))
-    os.system(file_path + '/bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT -QUIET')
+    os.system(file_path + '/bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT > ./tmp/clustalw.log')
     return "./tmp/seqs.aln"
 
 
@@ -91,7 +91,7 @@ def run_alpha_fold(query_uniprot):
     url = "https://alphafold.ebi.ac.uk/files/AF-"+query_uniprot+"-F1-model_v2.pdb"
     filehandle = urlopen(url)
     pdbfile = open("./tmp/"+ query_uniprot +"_alphaFold.pdb", 'wb')
-    
+
     for line in filehandle:
         pdbfile.write(line)
     pdbfile.close()
