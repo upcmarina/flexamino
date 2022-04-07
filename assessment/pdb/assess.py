@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import scipy.stats as sp
 
 
 
@@ -62,3 +63,9 @@ plot.set_title("Correlation between predicted and observed bfactors")
 plot.set_xlabel("observed")
 plot.set_ylabel("predicted")
 plt.savefig('correlation.png')
+
+# Pearson correlation test
+x = data2['bfactor_x'].to_numpy()
+y = data2['bfactor_y'].to_numpy()
+nas = np.logical_or(np.isnan(x), np.isnan(y))
+print(sp.pearsonr(x[~nas], y[~nas]))
