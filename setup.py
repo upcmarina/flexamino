@@ -19,6 +19,6 @@ setup(name='FlexAmino',
   url='https://github.com/upcmarina/structural_biology',
   install_requires = ['Biopython','seaborn'],
   packages=['FlexAmino'],
-  scripts=['FlexAmino/flexamino.py', 'FlexAmino/args.py', 'FlexAmino/pdb_functions.py', 'FlexAmino/profiles_bfactor.py','FlexAmino/work_with_input_sequence.py', 'FlexAmino/results_to_file.py','bin/clustalw2'],
+  scripts=['FlexAmino/flexamino.py', 'FlexAmino/args.py', 'FlexAmino/pdb_functions.py', 'FlexAmino/profiles_bfactor.py','FlexAmino/work_with_input_sequence.py', 'FlexAmino/results_to_file.py'],
   keywords = 'bioinformatics protein_flexibility b_factors'
 )
