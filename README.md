@@ -2,7 +2,7 @@
 ==================================
 *by* TORO, ERIC ; VALLEJO, MARINA ; VEGA, SARA
 
-![flexamino_logo](https://user-images.githubusercontent.com/67465839/162766085-2ef61916-a2cd-4244-9786-ab003ebae2a3.png)
+![flexamino_logo](https://user-images.githubusercontent.com/67465839/162766413-d015bd96-3f49-45e0-a2f3-a85dff2070be.png)
 
 `main.py` main execution script for the program
 
