@@ -1,7 +1,7 @@
 **FlexAmino**
 ==================================
 
-E. Toro, M. Vallejo, S. Vega. **"FlexAmino: assessment of protein flexibility"** Master in Bioinformatics for Health Sciences, 2022
+E. Toro, M. Vallejo, S. Vega. **"FLEXAMINO: B-FACTOR PREDICTOR APPROACH FOR THE ASSESSMENT OF PROTEIN FLEXIBILITY"** Master in Bioinformatics for Health Sciences, 2022
 
 ![flexamino_logo](https://user-images.githubusercontent.com/67465839/162766413-d015bd96-3f49-45e0-a2f3-a85dff2070be.png)
 
