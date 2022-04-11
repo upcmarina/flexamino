@@ -17,6 +17,10 @@ First of all, clone the current repository to your local machine:
 git clone https://github.com/upcmarina/structural_biology.git
 ```
 
+```
+sudo apt-get install python3-setuptools
+```
+
 Before running **FlexAmino**, you need to install some dependencies. This step can be done by hand or in an automatized way typing the following command (in cmd):
 ```
 sudo python3 setup.py install
