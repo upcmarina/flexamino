@@ -11,12 +11,12 @@ E. Toro, M. Vallejo, S. Vega. **"FlexAmino: assessment of protein flexibility"**
 
 # INSTALLATION
 
-In order to install **FlexA, clone the current repository to your local machine:
+In order to install **FlexAmino** first of all you must clone the current repository to your local machine:
 ```
 git clone https://github.com/upcmarina/structural_biology.git
 ```
 
-Before running **FlexAmino**, you need to install some dependencies. This step can be done by hand or in an automatized way typing the following commands (having root permission):
+Once the repository is cloned, you need to install some dependencies. You have two options, either install them by hand or install them in an automatized way typing the following commands (having root permissions):
 ```
 apt-get install python3-setuptools
 
