@@ -17,15 +17,18 @@ First of all, clone the current repository to your local machine:
 git clone https://github.com/upcmarina/structural_biology.git
 ```
 
-Before running **FlexAmino**, you need to install some dependencies. This step can be done by hand or in an automatized way typing the following commands (in cmd):
+Before running **FlexAmino**, you need to install some dependencies. This step can be done by hand or in an automatized way typing the following commands (with root permission):
 ```
-sudo apt-get install python3-setuptools
+apt-get install python3-setuptools
 
-sudo python3 setup.py install
+python3 setup.py install
 ```
 
 If the installation is successful the following message will appear in the terminal:
 
 ![image](https://user-images.githubusercontent.com/67465839/162790974-d571e64e-de0b-4696-b39f-9c2ab6bdcb43.png)
 
-
+**FlexAmino** uses **clustalw2**. You must copy the bin file provided in the package `bin/clustalw2` to the distribution directory generated in the previous step:
+```
+cp /bin/clustalw2 /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts
+```
