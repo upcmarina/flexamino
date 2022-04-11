@@ -19,7 +19,7 @@ git clone https://github.com/upcmarina/structural_biology.git
 
 Before running **FlexAmino**, you need to install some dependencies. This step can be done by hand or in an automatized way typing the following command (in cmd):
 ```
-python3 setup.py install
+sudo python3 setup.py install
 ```
 
 
