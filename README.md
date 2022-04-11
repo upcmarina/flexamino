@@ -2,6 +2,8 @@
 ==================================
 *by* TORO, ERIC ; VALLEJO, MARINA ; VEGA, SARA
 
+![flexamino_logo](https://user-images.githubusercontent.com/67465839/162766085-2ef61916-a2cd-4244-9786-ab003ebae2a3.png)
+
 `main.py` main execution script for the program
 
 `setup.py` set up
