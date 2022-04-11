@@ -6,7 +6,7 @@
 # In[ ]:
 
 """
-Main execution program.
+FlexAmino main execution program.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -90,13 +90,15 @@ if __name__ == "__main__":
 
     if verbose: print("### Multiple Sequence Alignment done", file=sys.stderr, flush=True)
 
-    # Generate Alpha Fold model of the query sequence
+    # Generate Alpha Fold model of the query sequence:
     alphafold_model = run_alpha_fold(query_uniprot_ID)
 
     if verbose: print("### Alpha Fold model downloaded", file=sys.stderr, flush=True)
 
+    # Create a prediction profile:
     prediction = profile_predict(querySeq, pdb_paths, msa, alphafold_model, winsize)
 
+    # Write results in a parseable text:
     prediction_write(prediction, output_filename, query_uniprot_ID, winsize)
 
     if verbose: print("### Output generated", file=sys.stderr, flush=True)
