@@ -35,7 +35,8 @@ cp /bin/clustalw2 /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg
 
 
 Another possibility regarding ClustalW2 installation is using the built-in APT package manager. Then the user only needs to type the following command (having root privileges):
-
+```
 apt-get install -y clustalw
+```
 
 Now it is possible to run flexamino.py from any directory in the local machine. Remember that the program will need to have the input FASTA file in the same directory.
