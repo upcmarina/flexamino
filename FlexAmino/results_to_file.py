@@ -22,10 +22,17 @@ def prediction_write(prediction, output_filename, seqID, winsize, pdb=None, chai
     Takes a predicted beta-factor profile and writes it to a file.
     If a PDB file is passed, it writes the predicted beta-factors to the alpha carbon's beta-factor column;
     if no PDB is given, writes the output in a tabular format.
-    Keyword arguments:
-    prediction -- the tuple containing the aminoacid sequence and the predicted beta-factors
-    output_filename -- the name with which to write the output file
-    pdb -- the name of the pdb to modify
+
+    Arguments:
+        prediction: the tuple containing the aminoacid sequence and the predicted beta-factors
+        output_filename:    prefix of the output filename
+        seqID:  ID of the query sequence
+        winsize:    size of the sliding window applied in the smoothing process
+        pdb:    path to the pdb file to modify
+        chainID:
+
+    Returns:
+        None
     """
 
     if pdb is None:
@@ -59,7 +66,18 @@ def prediction_write(prediction, output_filename, seqID, winsize, pdb=None, chai
 
 
 def plot_profile(prediction, seqID, output_filename, winsize):
-    """Plot the predicted b-factor scores for each residue position."""
+    """
+    Plot the predicted b-factor scores for each residue position.
+
+    Arguments:
+        prediction: the tuple containing the aminoacid sequence and the predicted beta-factors
+        output_filename:    prefix of the output filename
+        seqID:  ID of the query sequence
+        winsize:    size of the sliding window applied in the smoothing process
+
+    Returns:
+        None
+    """
 
     AA_pos = [num for num in range(0, len(prediction[0]))]
 
