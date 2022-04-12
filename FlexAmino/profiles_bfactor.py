@@ -40,7 +40,7 @@ def normalize_bfactors(pdb_list):
 
 def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, winsize):
     """
-    Predict the b-factor profile of an target protein based on a structural alignment.
+    Predict the b-factor profile of a target protein based on a structural alignment.
 
     Arguments:
         target_name:    path to the query sequence fasta file
@@ -50,7 +50,7 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, wi
         winsize:        sliding window size to be applied in the smoothing of the predicted b-factors
 
     Returns:
-        A tuple containing the aminoacid sequence, the predicted beta-factors, the std of the beta-factors and the smoothed b-factors.
+        A tuple containing the aminoacid sequence, the predicted beta-factors, the standard deviation of the beta-factors and the smoothed b-factors.
     """
     parser=PDB.PDBParser()
 
@@ -66,21 +66,15 @@ def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, wi
         template_name = template_structure.get_id()
         structural_aln = PDB.StructureAlignment(alignment, target_structure, template_structure, len(templates_list), element)
 
-        #bfactor_list = np.empty(0)
 
         position = 0
         for residue in structural_aln.get_maps()[0].values():
             if residue is None:
                 CA_bfactors[element, position] = np.nan
-                #bfactor_list = np.append(bfactor_list, [np.nan], axis = 0)
-                #print(residue)
             else:
                 CA_bfactors[element, position] = residue['CA'].get_bfactor()
-                #bfactor_list = np.append(bfactor_list, [residue['CA'].get_bfactor()], axis = 0)
-                #print(residue)
             position += 1
 
-        #CA_bfactors = np.append(CA_bfactors, [bfactor_list], axis = 0)
 
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", category=RuntimeWarning)
