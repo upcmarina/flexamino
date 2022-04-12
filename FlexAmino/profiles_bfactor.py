@@ -8,18 +8,19 @@ by: Toro, Vallejo, Vega
 """
 
 from Bio import PDB, SeqIO, AlignIO
-from Bio.SeqUtils import IUPACData
-import seaborn as sns
-import matplotlib.pyplot as plt
-import requests as rq
-import os
-from pathlib import Path
 import numpy as np
 import warnings
 
 
 def normalize_bfactors(pdb_list):
-    """Normalize c-alfa b-factors of a PDB structure by computing their Z-score."""
+    """
+    Normalize c-alfa b-factors of a PDB structure by computing their Z-score.
+
+    Arguments:
+        pdb_list:   list of paths of the PDB files to be normalized
+    Returns:
+        List of objects of the class Structure that corresponds to the parsed input PDBs with the normalized b-factors.
+    """
     normalized_structures = list()
     parser=PDB.PDBParser()
     for pdb_name in pdb_list:
@@ -38,7 +39,19 @@ def normalize_bfactors(pdb_list):
 
 
 def profile_predict(target_name, templates_list, fasta_align, alphaFold_path, winsize):
-    """Predict the b-factor profile of an target protein based on a structural alignment."""
+    """
+    Predict the b-factor profile of an target protein based on a structural alignment.
+
+    Arguments:
+        target_name:    path to the query sequence fasta file
+        templates_list: list of paths of the PDB files to be used as templates
+        fasta_align:    path to the MSA file in clustal format of the templates and the query sequences. The query sequence must be in the last position
+        alphaFold_path: path to the PDB structure of the query sequence
+        winsize:        sliding window size to be applied in the smoothing of the predicted b-factors
+
+    Returns:
+        A tuple containing the aminoacid sequence, the predicted beta-factors, the std of the beta-factors and the smoothed b-factors.
+    """
     parser=PDB.PDBParser()
 
     target_seq = SeqIO.read(target_name, "fasta")

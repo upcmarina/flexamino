@@ -1,10 +1,22 @@
+
+"""
+Package with functions to deal with command-line arguments.
+by: Toro, Vallejo, Vega
+2022
+"""
+
 import argparse
-import sys
-import os
-import Bio.Seq
 
 
 def getArgs():
+    """
+    Define and parse the command-line arguments for FlexAmino
+    Arguments:
+        None
+    Returns:
+        ArgumentParser object containing the parsed arguments 'infile', 'outfile', 'verbose', 'keep_tmp',
+        'rescue', 'pdb_limit', 'winsize'
+    """
     parser = argparse.ArgumentParser(description = "Open protein FASTA files")
     parser.add_argument('-i', '--input',
                             dest = 'infile', action = 'store',
@@ -21,31 +33,20 @@ def getArgs():
                             default = False,
                             help = 'Print the progression of the program execution to the terminal (Standard Error).')
     parser.add_argument('-t', '--tmp',
-                            dest = 'keep_tmp', action = 'store_true', 
+                            dest = 'keep_tmp', action = 'store_true',
                             default = False,
                             help = 'Keep the tmp directory when the program finishes.')
     parser.add_argument('-r', '--rescue',
                             dest = 'rescue', action = 'store_true',
                             default = False,
-                            help = 'Recover a computation from a BLAST result to avoid running BLAST again if the program fails.')  
+                            help = 'Recover a computation from a BLAST result to avoid running BLAST again if the program fails.')
     parser.add_argument('-p', '--pdb_cutoff',
                             dest = 'pdb_limit', action = 'store',
                             default = 10,
-                            help = 'Set a maximum number of pdb structures to use for the computation.')  
+                            help = 'Set a maximum number of pdb structures to use for the computation.')
     parser.add_argument('-w', '--winsize',
                             dest = 'winsize', action = 'store',
                             default = 1,
-                            help = 'Set a sliding window for smoothing the results.')  
+                            help = 'Set a sliding window for smoothing the results.')
 
     return parser.parse_args()
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    pass
