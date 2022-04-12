@@ -86,7 +86,7 @@ def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcion
         if verbose: print("Saved pdb " + pdb_path, file=sys.stderr, flush=True)
 
 
-    ## parse pdb to extrat chain
+    ## parse pdb to extract chain
     parser=PDBParser(QUIET=True)
     structure = parser.get_structure(code, pdb_path)
 
