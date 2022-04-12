@@ -1,35 +1,42 @@
-**SBI PYTHON PROJECT**
+**FlexAmino**
 ==================================
-*by* TORO, ERIC ; VALLEJO, MARINA ; VEGA, SARA
 
-`main.py` main execution script for the program
+E. Toro, M. Vallejo, S. Vega. **"FLEXAMINO: B-FACTOR PREDICTOR APPROACH FOR THE ASSESSMENT OF PROTEIN FLEXIBILITY"** Master in Bioinformatics for Health Sciences, 2022
 
-`setup.py` set up
+![flexamino_logo](https://user-images.githubusercontent.com/67465839/162766413-d015bd96-3f49-45e0-a2f3-a85dff2070be.png)
 
-Directories:
+# ABOUT
 
-* program_packages : 
+**FlexAmino** is a Python program based on the search of homologs for a given protein sequence. Crystallographic beta-factors are extracted from the homologs that have an available known structure and with them, a beta-factor profile is generated and assigned to the query sequence using a structural alignment.
 
-`input_reader.py`
+# INSTALLATION
 
-`pdb_functions.py`
+In order to install **FlexAmino** first of all you must clone the current repository to your local machine:
+```
+git clone https://github.com/upcmarina/structural_biology.git
+```
 
-`profiles.py`
+Once the repository is cloned, you need to install some dependencies. You have two options, either install them by hand or install them in an automatized way typing the following commands (having root permissions):
+```
+apt-get install python3-setuptools
 
-`report.py`
+python3 setup.py install
+```
 
-* other :
+If the installation is successful the following message will appear in the terminal:
 
-`borrador.md` project information and others
+![image](https://user-images.githubusercontent.com/67465839/162790974-d571e64e-de0b-4696-b39f-9c2ab6bdcb43.png)
 
-`input.py` arguments
-
-`flexibility_for_noobs.md` key concepts about flexibility
-
-`proposta_projecte.md` idea de projecte a fer
-
-`proposed_steps.md` steps proposed by professor
-
+**FlexAmino** uses clustalw2 via a binary file, which is provided in the repository `bin/clustalw2`. In order to include it in the installation, you must create a directory called `bin` in the distribution package path previously generated, and then copy the binary file:
+```
+mkdir /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts/bin
+cp /bin/clustalw2 /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts/bin
+```
 
 
+Another possibility regarding ClustalW2 installation is using the built-in APT package manager. Then the user only needs to type the following command (having root privileges):
+```
+apt-get install -y clustalw
+```
 
+Now it is possible to run flexamino.py from any directory in the local machine. Remember that the program will need to have the input FASTA file in the same directory.
