@@ -45,9 +45,12 @@ def run_clustalw(multifasta):
     Accepts a multifasta file as input.
     Returns a .aln file
     """
-    file_path = os.path.dirname(os.path.abspath(__file__))
-    os.system(file_path + './bin/clustalw2 ' + multifasta + ' -OUTORDER=INPUT > ./tmp/clustalw.log')
-    return "./tmp/seqs.aln"
+
+    if shutil.which("clustalw") is None:
+        raise SystemExit('ERROR: clustalw executable not found. Please check that clustalw is installed.')
+    else:
+        os.system('clustalw ' + multifasta + ' -OUTORDER=INPUT > ./tmp/clustalw.log')
+        return "./tmp/seqs.aln"
 
 
 def obtain_uniprot_id(inputSeq):
