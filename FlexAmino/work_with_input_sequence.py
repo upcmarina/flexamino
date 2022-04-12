@@ -22,7 +22,13 @@ import shutil
 
 def blast_my_target(inputSeq):
     """
-    BLAST
+    Performs BLASTp against the PDB database
+
+    Arguments:
+        inputSeq: path to a fasta file containing the query Sequence
+
+    Returns:
+        A blast-record object with the blast results.
     """
     fasta_file = open(inputSeq, "r")
     seq = fasta_file.read()
@@ -41,9 +47,14 @@ def blast_my_target(inputSeq):
 
 def run_clustalw(multifasta):
     """
-    Performs a Multiple Sequence Alignment using ClustalW.
-    Accepts a multifasta file as input.
-    Returns a .aln file
+    Performs a Multiple Sequence Alignment using ClustalW and stores the alignment in clustal format.
+
+    Arguments:
+        multifasta: path to a multifasta file
+
+    Returns:
+        String containing the path to the clustal alignment file.
+
     """
 
     if shutil.which("clustalw") is None:
@@ -56,6 +67,12 @@ def run_clustalw(multifasta):
 def obtain_uniprot_id(inputSeq):
     """
     Obtain uniprot id of our query sequence
+
+    Arguments:
+        inputSeq:   path to a fasta file with UNIPROT headers
+
+    Returns:
+        String containing the Uniprot ID.
     """
     with open(inputSeq) as my_file:
 
@@ -89,7 +106,13 @@ def obtain_uniprot_id(inputSeq):
 
 def run_alpha_fold(query_uniprot):
     """
-    Generate an alpha fold model of the query sequence.
+    Download an alpha fold model of the query sequence.
+
+    Arguments:
+        query_uniprot:  Uniprot ID of the query Sequence
+
+    Returns:
+        String containing the path to the alphaFold structure of the query sequence
     """
     url = "https://alphafold.ebi.ac.uk/files/AF-"+query_uniprot+"-F1-model_v2.pdb"
     filehandle = urlopen(url)

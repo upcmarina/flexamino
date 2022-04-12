@@ -2,7 +2,7 @@
 # coding: utf-8
 
 """
-Package with functions to deal with pdb.
+Package with functions to deal with pdbs.
 by: Toro, Vallejo, Vega
 2022
 """
@@ -15,7 +15,16 @@ import os
 import sys
 
 def PDB_to_fasta(code_list, inputSeq):
-    """Write a FASTA with template sequences from their PDBs and with target FASTA sequence."""
+    """
+    Write a multiFASTA file with template sequences from their PDBs and with target FASTA sequence.
+
+    Arguments:
+        code_list:  list of paths to the pdb files whose sequences will be included in the multiFASTA file
+        inputSeq:   path to the fasta file containing the query sequence
+
+    Returns:
+        A string containing the path to the created multiFASTA file.
+    """
     parser=PDB.PDBParser(QUIET=True)
     out_file = open("./tmp/seqs.fasta", 'wt')
     for code in code_list:
@@ -43,8 +52,15 @@ def PDB_to_fasta(code_list, inputSeq):
 def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcional)
     """
     Download a specified PDB file using API and extract the specified chain.
-    Returns the path to the one-chain pdb file.
-    WARNING: IT ONLY DOWNLOADS X-RAY PDBs. If the pdb is not x-ray, returns None
+
+    Arguments:
+        code:   a pdb code
+        chain:  a valid chain ID
+        verbose: if True, it will print the messages on the screen, if False it will not.
+
+    Returns:
+        The path to the one-chain pdb file.
+        WARNING: IT ONLY DOWNLOADS X-RAY PDBs. If the pdb is not x-ray, returns None.
     """
     pdb_path = "./tmp/"+code.upper()+".pdb"
 
@@ -93,7 +109,16 @@ def pdb_download_chain_xray(code, chain, verbose): # que descarregui .gz (opcion
 
 
 def obtain_pdb_list(blast_record):
-    """Parses a blast-record object and returns a generator of tuples with the structure (pdb_id, chain) """
+    """
+    Parses the hits of a blast-record object and returns a generator of tuples with the structure (pdb_id, chain) 
+
+    Arguments:
+        blast_record:   blast-record object
+
+    Returns:
+        Generator of tuples with the structure (pdb_id, chain_id)
+
+    """
     for hit in blast_record.descriptions:
         blast_id = hit.accession
         yield tuple(blast_id.split("_"))
