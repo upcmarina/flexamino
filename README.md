@@ -33,4 +33,9 @@ mkdir /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/sc
 cp /bin/clustalw2 /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts/bin
 ```
 
-Now you can run `flexamino.py` from any directory in your local machine, remember to have in the directory the fasta file with the fasta sequence you will use as an input:
+
+Another possibility regarding ClustalW2 installation is using the built-in APT package manager. Then the user only needs to type the following command (having root privileges):
+
+apt-get install -y clustalw
+
+Now it is possible to run flexamino.py from any directory in the local machine. Remember that the program will need to have the input FASTA file in the same directory.
