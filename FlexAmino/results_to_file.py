@@ -7,13 +7,8 @@ by: Toro, Vallejo, Vega
 2022
 """
 
-from Bio import PDB, SeqIO
-from Bio.SeqUtils import IUPACData
 import seaborn as sns
 import matplotlib.pyplot as plt
-import requests as rq
-import os
-import sys
 
 
 def prediction_write(prediction, output_filename, seqID, winsize):
