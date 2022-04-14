@@ -27,16 +27,10 @@ If the installation is successful the following message will appear in the termi
 
 ![image](https://user-images.githubusercontent.com/67465839/162790974-d571e64e-de0b-4696-b39f-9c2ab6bdcb43.png)
 
-**FlexAmino** uses clustalw2 via a binary file, which is provided in the repository `bin/clustalw2`. In order to include it in the installation, you must create a directory called `bin` in the distribution package path previously generated, and then copy the binary file:
-```
-mkdir /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts/bin
-cp /bin/clustalw2 /usr/local/lib/python3.8/dist-packages/FlexAmino-1.0-py3.8.egg/EGG-INFO/scripts/bin
-```
 
-
-Another possibility regarding ClustalW2 installation is using the built-in APT package manager. Then the user only needs to type the following command (having root privileges):
+**FlexAmino** also requires ClustalW to be installed. This can be done using the built-in APT package manager. Then the user only needs to type the following command (having root privileges):
 ```
 apt-get install -y clustalw
 ```
 
-Now it is possible to run flexamino.py from any directory in the local machine. Remember that the program will need to have the input FASTA file in the same directory.
+Now it is possible to run *flexamino.py* from any directory in the local machine. 
