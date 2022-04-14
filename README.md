@@ -13,7 +13,7 @@ E. Toro, M. Vallejo, S. Vega. **"FLEXAMINO: B-FACTOR PREDICTOR APPROACH FOR THE 
 
 In order to install **FlexAmino** first of all you must clone the current repository to your local machine:
 ```
-git clone https://github.com/upcmarina/structural_biology.git
+https://github.com/upcmarina/flexamino.git
 ```
 
 Once the repository is cloned, you need to install some dependencies. You have two options, either install them by hand or install them in an automatized way typing the following commands (having root permissions):
