@@ -16,53 +16,33 @@ import os
 import sys
 
 
-def prediction_write(prediction, output_filename, seqID, winsize, pdb=None, chainID=None):
+def prediction_write(prediction, output_filename, seqID, winsize):
     """
-    Write predicted beta-factors to a file.
     Takes a predicted beta-factor profile and writes it to a file.
-    If a PDB file is passed, it writes the predicted beta-factors to the alpha carbon's beta-factor column;
-    if no PDB is given, writes the output in a tabular format.
 
     Arguments:
         prediction: the tuple containing the aminoacid sequence and the predicted beta-factors
         output_filename:    prefix of the output filename
         seqID:  ID of the query sequence
         winsize:    size of the sliding window applied in the smoothing process
-        pdb:    path to the pdb file to modify
-        chainID:
 
     Returns:
         None
     """
 
-    if pdb is None:
-        with open(output_filename + ".txt", "wt") as fd:
-            fd.write(">"+seqID+"\n")
-            if winsize == 1:
-                for position in range(0, len(prediction[0])):
-                    fd.write(str(position+1)+"\t"+prediction[0][position]+
-                    "\t"+str(prediction[1][position])+
-                    "\t"+str(prediction[2][position])+"\n")
-            else:
-                for position in range(0, len(prediction[0])):
-                    fd.write(str(position+1)+"\t"+prediction[0][position]+
-                    "\t"+str(prediction[1][position])+
-                    "\t"+str(prediction[2][position])+
-                    "\t"+str(prediction[3][position])+"\n")
-
-    #else: # CAL PODER FICAR ELS BFACTORS A UN PDB?
-     #   structure = p.get_structure("structure", pdb)
-      #  for chain in structure.get_chains():
-       #     if chain == chainID:
-        #        position = 0
-         #       for residue in structure.get_residues():
-          #          #resname = residue.get_resname()
-           #         for atom in residue.get_atoms():
-            #            if atom.get_id() == "CA":
-             #               atom.set_bfactor(prediction[1][position])
-              #              position += 1
-
-    #return structure
+    with open(output_filename + ".txt", "wt") as fd:
+        fd.write(">"+seqID+"\n")
+        if winsize == 1:
+            for position in range(0, len(prediction[0])):
+                fd.write(str(position+1)+"\t"+prediction[0][position]+
+                "\t"+str(prediction[1][position])+
+                "\t"+str(prediction[2][position])+"\n")
+        else:
+            for position in range(0, len(prediction[0])):
+                fd.write(str(position+1)+"\t"+prediction[0][position]+
+                "\t"+str(prediction[1][position])+
+                "\t"+str(prediction[2][position])+
+                "\t"+str(prediction[3][position])+"\n")
 
 
 def plot_profile(prediction, seqID, output_filename, winsize):
