@@ -60,18 +60,18 @@ The outputname will be used to create the output file names of the text and imag
 
 ## FLAGS
 
--h, --help show this help message and exit
+`-h` --help   show this help message and exit
 
--i, --input Mandatory argument. Specify the input FASTA file with the protein sequence to analyze.
+`-i` --input  Mandatory argument. Specify the input FASTA file with the protein sequence to analyze.
 
--o, --output Mandatory argument. Prefix to generate the different output files.
+`-o` --output   Mandatory argument. Prefix to generate the different output files.
 
--v, --verbose Print the progression of the program execution to the terminal (Standard Error).
+`-v` --verbose  Print the progression of the program execution to the terminal (Standard Error).
 
--t, --tmp Keep the temporary files directory when the program finishes.
+`-t` --tmp  Keep the temporary files directory when the program finishes.
 
--r, --rescue Recover a computation from a BLAST result to avoid running BLAST again.
+`-r` --rescue   Recover a computation from a BLAST result to avoid running BLAST again.
 
--p, --pdb_cutoff Set a maximum number of pdb structures to use for the computation. Default value of 10.
+`-p` --pdb_cutoff   Set a maximum number of pdb structures to use for the computation. Default value of 10.
 
--w, --winsize Set a sliding window for smoothing the results. Default value of 1 (i.e. no smoothing)
+`-w` --winsize   Set a sliding window for smoothing the results. Default value of 1 (i.e. no smoothing)
